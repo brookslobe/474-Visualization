@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 11px sans-serif;
+}
+
+.axis line,
+.axis text {
+  font: 11px sans-serif;
+}
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+</style>
+<body>
+<link href="style.css" rel="stylesheet">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<div id="layout">
+	<div id="title">
+		<p>Popularity of Characters by Appearances</p>
+	</div>
+	<div id="visualization">
+		<svg class="chart"></svg>
+		
+		<p id="ylabel1">Average Appearances Per Year, Since Character Inception</p>
+		<p id="ylabel2">Number of Characters Introduced</p>
+		
+         </div>
+         <div id="controls">
+
+
+         <label for="gender">Gender:</label>
+            	<input type="text" id="gender" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				<br>
+				<div class="filters">
+					<select id=“selectform4” onchange="filter('gender', this.value)">
+					<option value="all">All</option>
+					<option value="Female Characters">Female</option>
+					<option value="Male Characters">Male</option>
+					</select>
+				</div>
+
+
+				<br/>
+
+		<!--label for the type dropdown-->
+		<label for="type">Universe:</label>
+				<input type="text" id="mytype" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				<br>
+				<!--create the dropdown here-->
+				<div class="filters">
+					<select id=“selectform” onchange="filter('universe', this.value)">
+					<option value="all">All</option>
+					<option value="DC">DC</option>
+					<option value="Marvel">Marvel</option>
+					</select>
+				</div>
+
+								<!--create the dropdown here-->
+
+				<br/>
+
+				<label for="ta">Identity:</label>
+            	<input type="text" id="tatype" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				<br>
+				<div class="filters">
+					<select id=“selectform2” onchange="filter('identity', this.value)">
+					<option value="all">All</option>
+					<option value="Public Identity">Public</option>
+					<option value="Secret Identity">Secret</option>
+					</select>
+				</div>
+
+
+				<br/>
+
+				<label for="industry">Alignment:</label>
+            	<input type="text" id="industrytype" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				<br>
+				<div class="filters">
+					<select id=“selectform3” onchange="filter('alignment', this.value)">
+					<option value="all">All</option>
+					<option value="Good Characters">Good</option>
+					<option value="Neutral Characters">Neutral</option>
+					<option value="Bad Characters">Evil</option>
+					</select>
+				</div>
+
+
+				<!--create the sliders here (with labels to show the selected range)-->
+				<br/>
+				
+				<div style="width: 80%; margin-left: 10%; margin-top: 5%">
+					<label for="comicyear">Year: </label>
+					<input type="text" id="comicyear" readonly style="border:0; color:#f6931f; font-weight:bold;"/>
+					<div id="year" class="slider-range"></div>
+				</div>
+				
+
+				<br>
+
+				<div id="profile">
+					<h1 id="name"></h1>
+					<p id="info">
+						<br>
+						<span class="bold">Year Introduced: </span> <span id="yearintroduced"></span>
+						<br>
+						<span class="bold">Universe: </span> <span id="universe"></span>
+						<br>
+						<span class="bold">Gender: </span> <span id="gender"></span>
+						<br>
+						<span class="bold">Identity: </span> <span id="indentity"></span>
+						<br>
+						<span class="bold">Alignment: </span> <span id="alignment"></span>
+						<br>
+						<br>
+						<span class="bold">(Click dot for more information)</span> <span id="experience"></span>
+					</p>
+				</div>
+
+				
+
+	</div>
+
+<script src="script.js"></script>
+
+<div id="legend">
+			DC: <div id="maleColor" class="color"></div>
+			Marvel: <div id="femaleColor" class="color"></div>
+		</div>
+
+</body>
+</html>
+
